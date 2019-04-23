@@ -12,21 +12,21 @@ if (isset($_POST['submit'])) {
 	//Error handlers
 	//check if inputs are empty
 	if (empty($uid) || empty($pwd)) {
-		header("Location: ../index.php?login=Noob");
+		header("Location: ../index.php?login=empty");
 		exit();
 	}else {
-		$sql = "SELECT * FROM users WHERE user_uid='$uid'";
+		$sql = "SELECT * FROM users WHERE user_uid='$uid' OR user_email='$uid'";
 		$result = mysqli_query($conn, $sql);
 		$resultCheck = mysqli_num_rows($result);
 		if ($resultCheck < 1) {
-			header("Location: ../index.php?login=Bob");
+			header("Location: ../index.php?login=Error");
 			exit();
 		}else {
 			if ($row = mysqli_fetch_assoc($result)) {
 				//De-hashing the password
 				$hashedPwdCheck = password_verify($pwd, $row['user_pwd']);
 				if ($hashedPwdCheck == false) {
-					header("Location: ../index.php?login=greedy");
+					header("Location: ../index.php?login=Error");
 					exit();
 				} elseif ($hashedPwdCheck == true) {
 					//Log in the user here
