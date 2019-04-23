@@ -155,7 +155,7 @@ header .nav-login form input{
 	margin-right: 10px;
 	border: none;
 	background-color: #ccc
-	font-family arial;
+	font-family: arial;
 	font-size: 14px;
 	color: #111;
 	line-height: 30px;
@@ -168,7 +168,7 @@ header .nav-login form button{
 	margin-right: 10px;
 	border: none;
 	background-color: #f3f3f3
-	font-family arial;
+	font-family: arial;
 	font-size: 14px;
 	color: #111;
 	cursor: pointer;
